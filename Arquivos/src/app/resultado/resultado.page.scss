@@ -1,0 +1,13 @@
+#container{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid blue;
+  text-align: center;
+}
+
+ion-col{
+  border: 1px solid red;
+}
