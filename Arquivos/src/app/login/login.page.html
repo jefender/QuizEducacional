@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <h1 class="custom-title">Login</h1>
+
+  <div>
+    <ion-list>
+    <ion-item lines='none'>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input clearInput maxlength="20" type="email"></ion-input>
+    </ion-item>
+    <ion-item lines='none'>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input clearInput maxlength="15" type="password"></ion-input>
+    </ion-item>
+    </ion-list>
+  </div>
+
+
+  <div class="container-buttons">
+    <ion-button shape="round" color="success" (click)="abrirTela('create-user')">Criar conta</ion-button>
+    <ion-button shape="round" color="warning" (click)="abrirTela('create-user')">Fazer login</ion-button>
+  </div>
+
+</ion-content>

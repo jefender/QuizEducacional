@@ -24,6 +24,10 @@ export class PerguntaPage implements OnInit {
 
   constructor(public navCtrl: NavController) { }
 
+  abrirTela(page){
+    this.navCtrl.navigateForward(page)
+  }
+
   ionViewWillEnter(){
     this.inicio();
   }

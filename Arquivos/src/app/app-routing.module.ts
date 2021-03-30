@@ -26,6 +26,14 @@ const routes: Routes = [
   {
     path: 'sobre',
     loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'create-user',
+    loadChildren: () => import('./create-user/create-user.module').then( m => m.CreateUserPageModule)
   }
 ];
 

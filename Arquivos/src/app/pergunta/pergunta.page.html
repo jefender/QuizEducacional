@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -7,12 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
   <div id="container">
     <div id="perguntas">
       {{pergunta}}
     </div>
-
+    <br>
+    <br>
     <div id="respostas">
       <ion-list>
         <ion-radio-group>
@@ -40,15 +41,19 @@
       </ion-list>
     </div>
   </div>
+
 </ion-content>
 
 <ion-footer>
   <ion-row>
     <ion-col>
-      <ion-button expand="block" color="dark" (click)="inicio()">Início</ion-button>
+      <ion-button shape="round" expand="block" color="warning" (click)="abrirTela('folder/Inbox')">Início</ion-button>
     </ion-col>
     <ion-col>
-      <ion-button expand="block" color="dark" (click)="proximo()">Próximo</ion-button>
+      <ion-button shape="round" expand="block" color="danger" (click)="inicio()">Recomeçar</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button shape="round" expand="block" color="success" (click)="proximo()">Próximo</ion-button>
     </ion-col>
   </ion-row>
 </ion-footer>

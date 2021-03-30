@@ -4,7 +4,6 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  border: 1px solid red;
   text-align: center;
 }
 
@@ -12,9 +11,18 @@
   text-align: center;
   font-size: 17pt;
   font-weight: bold;
+  margin: 10px 10px 10px 10px;
+}
+
+#respostas{
+  margin: 8px 8px 8px 8px;
 }
 
 ion-label{
   font-size: 16pt;
   font-weight: bold;
+}
+
+ion-footer{
+  background-color: #222428;
 }
