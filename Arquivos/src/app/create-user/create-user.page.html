@@ -3,33 +3,32 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Login</ion-title>
+    <ion-title>Criar conta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding color="dark">
+  <form [formGroup]="fGroup">
+    <div>
+      <ion-item lines='none' color="primary">
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input clearInput maxlength="15" type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item lines='none' color="primary">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input clearInput maxlength="20" type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item lines='none' color="primary">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input clearInput maxlength="15" type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item lines='none' color="primary">
+        <ion-label position="floating">Repetir a Senha</ion-label>
+        <ion-input clearInput maxlength="15" type="password" formControlName="repassword"></ion-input>
+      </ion-item>
+    </div>
+  </form>
 
-  <div>
-    <ion-list>
-    <ion-item lines='none'>
-      <ion-label position="floating">Nome</ion-label>
-      <ion-input clearInput maxlength="15" type="text"></ion-input>
-    </ion-item>
-    <ion-item lines='none'>
-      <ion-label position="floating">E-mail</ion-label>
-      <ion-input clearInput maxlength="20" type="email"></ion-input>
-    </ion-item>
-    <ion-item lines='none'>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input clearInput maxlength="15" type="password"></ion-input>
-    </ion-item>
-    <ion-item lines='none'>
-      <ion-label position="floating">Repetir a Senha</ion-label>
-      <ion-input clearInput maxlength="15" type="password"></ion-input>
-    </ion-item>
-    </ion-list>
-  </div>
-
-  <ion-button shape="round">Criar conta</ion-button>
+  <ion-button (click)="submitForm()" shape="round" color="success" [disabled]="!fGroup.valid">Criar conta</ion-button>
 
 </ion-content>
