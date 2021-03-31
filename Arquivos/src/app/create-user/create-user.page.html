@@ -12,15 +12,15 @@
     <div>
       <ion-item lines='none' color="primary">
         <ion-label position="floating">Nome</ion-label>
-        <ion-input clearInput maxlength="15" type="text" formControlName="name"></ion-input>
+        <ion-input clearInput maxlength="30" type="text" formControlName="name"></ion-input>
       </ion-item>
       <ion-item lines='none' color="primary">
         <ion-label position="floating">E-mail</ion-label>
-        <ion-input clearInput maxlength="20" type="email" formControlName="email"></ion-input>
+        <ion-input clearInput maxlength="20" type="email" formControlName="email" [(ngModel)]="userRegister.email"></ion-input>
       </ion-item>
       <ion-item lines='none' color="primary">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input clearInput maxlength="15" type="password" formControlName="password"></ion-input>
+        <ion-input clearInput maxlength="15" type="password" formControlName="password" [(ngModel)]="userRegister.password"></ion-input>
       </ion-item>
       <ion-item lines='none' color="primary">
         <ion-label position="floating">Repetir a Senha</ion-label>
@@ -29,6 +29,6 @@
     </div>
   </form>
 
-  <ion-button (click)="submitForm()" shape="round" color="success" [disabled]="!fGroup.valid">Criar conta</ion-button>
+  <ion-button (click)="register()" shape="round" color="success" [disabled]="!fGroup.valid">Criar conta</ion-button>
 
 </ion-content>

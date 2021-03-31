@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +8,20 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  public userLogin: User = {};
 
-  constructor(public navCtrl: NavController, public controleAlerta: AlertController) { }
+  constructor(
+    public navCtrl: NavController,
+    public controleAlerta: AlertController,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
+    ) { }
 
   ngOnInit() {
+  }
+
+  login () {
+
   }
 
   abrirTela(page){
@@ -40,5 +51,4 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
-
 }
