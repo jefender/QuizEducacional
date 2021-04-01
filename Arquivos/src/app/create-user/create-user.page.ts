@@ -11,10 +11,12 @@ import { AuthService } from '../services/auth.service';
 })
 export class CreateUserPage implements OnInit {
 
+  ngOnInit() {
+  }
+
   public fGroup: FormGroup;
   public userRegister: User = {};
   private loading: any;
-
 
   constructor(
     private fBuilder: FormBuilder,
@@ -50,7 +52,7 @@ export class CreateUserPage implements OnInit {
     try {
       await this.authService.register(this.userRegister);
     } catch(error) {
-      let message; String;
+      let message: string;
 
       switch(error.code) {
         case 'auth/email-already-in-use':
@@ -58,18 +60,14 @@ export class CreateUserPage implements OnInit {
         break;
 
         case 'auth/invalid-email':
-          message = 'Email inválido';
+          message = 'Email inválido!';
         break;
       }
-
 
       this.presentToast(message);
     } finally {
       this.loading.dismiss();
-    }    
-  }
-
-  ngOnInit() {
+    }
   }
 
   async presentLoading() {
@@ -89,4 +87,5 @@ export class CreateUserPage implements OnInit {
 /*
   Itens que ainda falta:
 + Validar que as senhas digitadas no campo senha e confirma senha sejam identicas
++ Add esqueci minha senha
 */

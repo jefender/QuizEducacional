@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'pergunta',
-    loadChildren: () => import('./pergunta/pergunta.module').then( m => m.PerguntaPageModule)
+    loadChildren: () => import('./pergunta/pergunta.module').then( m => m.PerguntaPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'resultado',
@@ -29,11 +31,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule), canActivate: [LoginGuard]
   },
   {
     path: 'create-user',
-    loadChildren: () => import('./create-user/create-user.module').then( m => m.CreateUserPageModule)
+    loadChildren: () => import('./create-user/create-user.module').then( m => m.CreateUserPageModule), canActivate: [LoginGuard]
   }
 ];
 
