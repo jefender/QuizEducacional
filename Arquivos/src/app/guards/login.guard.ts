@@ -21,6 +21,4 @@ export class LoginGuard implements CanActivate {
       })
     });
   }
-
-
 }

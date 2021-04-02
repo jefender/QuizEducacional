@@ -11,7 +11,6 @@ export class AuthService {
 
   login(user: User) {
     return this.afa.signInWithEmailAndPassword(user.email, user.password);
-
   }
 
   register(user: User) {
@@ -19,11 +18,10 @@ export class AuthService {
   }
 
   logout() {
-
+    return this.afa.signOut();
   }
 
   getAuth() {
     return this.afa;
-
   }
 }
