@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,27 +8,22 @@
 </ion-header>
 
 <ion-content color="dark">
-
   <div id="container">
   <ion-card color="success">
-
     <ion-card-header>
-      <ion-card-title color="primary"><h1>Instruções do Quiz</h1></ion-card-title>
+      <ion-card-title color="primary"><h1>Instruções</h1></ion-card-title>
     </ion-card-header>
-
     <ion-card-content>
-      <h2>      
-        Clique em iniciar<br>
-        Este jogo tem dez perguntas<br>
-        Escolha a resposta que você achar a correta<br>
-        Clique em próximo<br>
-        Ao término das dez perguntas veja o resulatdo<br>
-        Você pode clicar em "Recomeçar" para reiniciar o jogo também
+      <h2>
+        Clique em iniciar<br><br>
+        Escolha a resposta correta<br><br>
+        Clique em próximo<br><br>
+        Ao término veja o resulatdo obtido<br><br>
+        Você pode clicar em "Recomeçar" para reiniciar o jogo<br><br>
+        Caso queira inserir novas perguntas, basta logar com um usuário administrativo e clicar no botão abaixo <br><br>
       </h2>
-
+      <ion-button shape="round" size="large" expand="block" color="medium" (click)="abrirTela('cadastro')">Cadastrar Perguntas</ion-button>
     </ion-card-content>
-
   </ion-card>
   </div>
-
 </ion-content>

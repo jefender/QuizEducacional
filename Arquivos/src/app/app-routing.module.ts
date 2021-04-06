@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'create-user',
     loadChildren: () => import('./create-user/create-user.module').then( m => m.CreateUserPageModule), canActivate: [LoginGuard]
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule), canActivate: [AuthGuard]
   }
 ];
 

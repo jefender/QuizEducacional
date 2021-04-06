@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastrar Perguntas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <div>
+    <ion-item lines='none' color="primary">
+      <ion-label position="floating">Pergunta</ion-label>
+      <ion-input clearInput maxlength="100" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines='none' color="primary">
+      <ion-label position="floating">Resposta 1</ion-label>
+      <ion-input clearInput maxlength="50" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines='none' color="primary">
+      <ion-label position="floating">Resposta 2</ion-label>
+      <ion-input clearInput maxlength="50" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines='none' color="primary">
+      <ion-label position="floating">Resposta 3</ion-label>
+      <ion-input clearInput maxlength="50" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines='none' color="primary">
+      <ion-label position="floating">Resposta 4</ion-label>
+      <ion-input clearInput maxlength="50" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines='none' color="primary">
+      <ion-label position="floating">Resposta 5</ion-label>
+      <ion-input clearInput maxlength="50" type="text"></ion-input>
+    </ion-item>
+  </div>
+  <ion-button (click)="register()" shape="round" color="success">Criar Pergunta</ion-button>
+</ion-content>

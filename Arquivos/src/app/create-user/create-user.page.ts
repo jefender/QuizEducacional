@@ -86,6 +86,10 @@ export class CreateUserPage implements OnInit {
 
 /*
   Itens que ainda falta:
++ Inserir o icone do projeto
 + Validar que as senhas digitadas no campo senha e confirma senha sejam identicas
 + Add esqueci minha senha
++ Inserir as perguntas e respostas no firebase
++ Trazer as perguntas e respostas de forma randomica
++ Inserir o campo nome e email da tela create-user no real database
 */
