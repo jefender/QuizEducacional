@@ -48,13 +48,13 @@ export class PerguntaPage implements OnInit {
   criacaoquestoes(){
     this.questoes = [
       {id:1,
-        pergunta:'O Tratado da União Europeia estabelece que qualquer país europeu pode se candidatar à adesão ao bloco. Porém, um país só pode entrar na União Europeia se cumprir alguns critérios de adesão. Um país que se candidate a membro desse bloco econômico deve necessariamente:',
-        resposta:'4',
-        op1:'Ser republicano e possuir economia de mercado, porém submetida a controles constantes por parte do Fundo Monetário Internacional (FMI)',
-        op2:'Permanecer fiel à legislação do bloco e delegar suas questões de segurança nacional à Organização do Tratado do Atlântico Norte (OTAN)',
-        op3:'Possuir regime monarquista de governo, aceitar a política econômica do bloco e se comprometer a utilizar o Euro',
-        op4:'Estar situado na Europa Ocidental e substituir sua Câmara de Deputados e seu Senado pelo Parlamento Europeu',
-        op5:'Ter instituições estáveis que garantam a democracia, o Estado de direito e o respeito aos direitos humanos'
+        pergunta:'O que seria uma Onomatopeia?',
+        resposta:'2',
+        op1:'Palavras que rimam',
+        op2:'Uso de palavras para representar um Som',
+        op3:'Composição de palavras que tem o mesmo Som',
+        op4:'Atribuição de características humanas a animais ou objetos',
+        op5:'Nenhuma das anteriores'
       },
       {id:2,
         pergunta:'Para que servem as multiplicações?',
@@ -66,13 +66,13 @@ export class PerguntaPage implements OnInit {
         op5:'Nenhuma das anteriores'
       },
       {id:3,
-        pergunta:'O que seria uma Onomatopeia?',
-        resposta:'2',
-        op1:'Palavras que rimam',
-        op2:'Uso de palavras para representar um Som',
-        op3:'Composição de palavras que tem o mesmo Som',
-        op4:'Atribuição de características humanas a animais ou objetos',
-        op5:'Nenhuma das anteriores'
+        pergunta:'Um país que se candidate ao Tratado da União Europeia deve necessariamente:',
+        resposta:'4',
+        op1:'Ser republicano e possuir economia de mercado, porém submetida a controles constantes por parte do Fundo Monetário Internacional (FMI)',
+        op2:'Permanecer fiel à legislação do bloco e delegar suas questões de segurança nacional à Organização do Tratado do Atlântico Norte (OTAN)',
+        op3:'Possuir regime monarquista de governo, aceitar a política econômica do bloco e se comprometer a utilizar o Euro',
+        op4:'Estar situado na Europa Ocidental e substituir sua Câmara de Deputados e seu Senado pelo Parlamento Europeu',
+        op5:'Ter instituições estáveis que garantam a democracia, o Estado de direito e o respeito aos direitos humanos'
       },
       {id:4,
         pergunta:'Em Matemática, no estudo de funções, a parábola é uma curva que representa uma função polinomial:',

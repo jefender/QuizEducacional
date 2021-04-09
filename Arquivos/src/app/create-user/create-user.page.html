@@ -16,7 +16,7 @@
       </ion-item>
       <ion-item lines='none' color="primary">
         <ion-label position="floating">E-mail</ion-label>
-        <ion-input clearInput maxlength="20" type="email" formControlName="email" [(ngModel)]="userRegister.email"></ion-input>
+        <ion-input clearInput maxlength="50" type="email" formControlName="email" [(ngModel)]="userRegister.email"></ion-input>
       </ion-item>
       <ion-item lines='none' color="primary">
         <ion-label position="floating">Senha</ion-label>
@@ -27,6 +27,7 @@
         <ion-input clearInput maxlength="15" type="password" formControlName="repassword"></ion-input>
       </ion-item>
     </div>
+    <p>* Senha: mínimo 6 caracteres</p>
   </form>
 
   <ion-button (click)="register()" shape="round" color="success" [disabled]="!fGroup.valid">Criar conta</ion-button>
