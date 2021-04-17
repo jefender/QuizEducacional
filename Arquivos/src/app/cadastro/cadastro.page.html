@@ -7,32 +7,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark">
+<ion-content padding color="dark">
+
+<form [formGroup]="fGroup" (ngsubmit)="CreateRecord()">
   <div>
     <ion-item lines='none' color="primary">
       <ion-label position="floating">Pergunta</ion-label>
-      <ion-input clearInput maxlength="100" type="text"></ion-input>
+      <ion-input clearInput maxlength="100" type="text" formControlName="pergunta"></ion-input>
     </ion-item>
     <ion-item lines='none' color="primary">
       <ion-label position="floating">Resposta 1</ion-label>
-      <ion-input clearInput maxlength="50" type="text"></ion-input>
+      <ion-input clearInput maxlength="50" type="text" formControlName="resposta1"></ion-input>
     </ion-item>
     <ion-item lines='none' color="primary">
       <ion-label position="floating">Resposta 2</ion-label>
-      <ion-input clearInput maxlength="50" type="text"></ion-input>
+      <ion-input clearInput maxlength="50" type="text" formControlName="resposta2"></ion-input>
     </ion-item>
     <ion-item lines='none' color="primary">
       <ion-label position="floating">Resposta 3</ion-label>
-      <ion-input clearInput maxlength="50" type="text"></ion-input>
+      <ion-input clearInput maxlength="50" type="text" formControlName="resposta3"></ion-input>
     </ion-item>
     <ion-item lines='none' color="primary">
       <ion-label position="floating">Resposta 4</ion-label>
-      <ion-input clearInput maxlength="50" type="text"></ion-input>
+      <ion-input clearInput maxlength="50" type="text" formControlName="resposta4"></ion-input>
     </ion-item>
     <ion-item lines='none' color="primary">
       <ion-label position="floating">Resposta 5</ion-label>
-      <ion-input clearInput maxlength="50" type="text"></ion-input>
+      <ion-input clearInput maxlength="50" type="text" formControlName="resposta5"></ion-input>
     </ion-item>
   </div>
-  <ion-button (click)="register()" shape="round" color="success">Criar Pergunta</ion-button>
+
+</form>
+
+  <ion-button (click)="CreateRecord()" shape="round" color="success" [disabled]="fGroup.invalid">Criar Pergunta</ion-button>
+
 </ion-content>
