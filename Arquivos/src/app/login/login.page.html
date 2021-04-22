@@ -1,14 +1,18 @@
 <ion-header></ion-header>
 
-<ion-content color="dark">
-  <h1 class="custom-title">Login</h1>
+<ion-content color="primary">
+
+  <div class="custom-title">
+    <img src="../../assets/iconeTransp.png" alt="Logomarca">
+    <h1>Login</h1>
+  </div>
 
   <div>
-    <ion-item lines='none' color="primary">
+    <ion-item lines='none' color="tertiary">
       <ion-label position="floating">E-mail</ion-label>
       <ion-input clearInput maxlength="20" type="email" [(ngModel)]="userLogin.email"></ion-input>
     </ion-item>
-    <ion-item lines='none' color="primary">
+    <ion-item lines='none' color="tertiary">
       <ion-label position="floating">Senha</ion-label>
       <ion-input clearInput maxlength="15" type="password" [(ngModel)]="userLogin.password"></ion-input>
     </ion-item>
@@ -17,7 +21,7 @@
 
   <div class="container-buttons">
     <ion-button shape="round" color="success" (click)="abrirTela('create-user')">Criar conta</ion-button>
-    <ion-button shape="round" (click)="login()">Fazer login</ion-button>
+    <ion-button shape="round" color="tertiary" (click)="login()">Fazer login</ion-button>
     <ion-button shape="round" color="danger" (click)="alertaConfirma()">Sair</ion-button>
   </div>
 

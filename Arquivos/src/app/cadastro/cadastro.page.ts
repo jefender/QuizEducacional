@@ -14,7 +14,7 @@ export class CadastroPage implements OnInit {
   fGroup: FormGroup;
 
   constructor(
-    private cadastroService: CadastroService,    
+    private cadastroService: CadastroService,
     public fb: FormBuilder
   ) {
     this.perguntasData = {} as Cadastro;
@@ -27,7 +27,8 @@ export class CadastroPage implements OnInit {
       resposta2: ['', [Validators.required]],
       resposta3: ['', [Validators.required]],
       resposta4: ['', [Validators.required]],
-      resposta5: ['', [Validators.required]]
+      correta: ['', [Validators.required]],
+      id: ['', [Validators.required]]
     })
   }
 
