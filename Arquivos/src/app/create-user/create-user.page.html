@@ -7,24 +7,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding color="dark">
+<ion-content padding color="primary">
+
+  <div class="icone">
+    <img src="../../assets/iconeTransp.png" alt="Logomarca">
+  </div>
+
   <form [formGroup]="fGroup">
     <div>
-      <ion-item lines='none' color="primary">
+      <ion-item lines='none' color="tertiary">
         <ion-label position="floating">Nome</ion-label>
-        <ion-input clearInput maxlength="30" type="text" formControlName="name"></ion-input>
+        <ion-input clearInput maxlength="50" type="text" formControlName="name"></ion-input>
       </ion-item>
-      <ion-item lines='none' color="primary">
+      <ion-item lines='none' color="tertiary">
         <ion-label position="floating">E-mail</ion-label>
         <ion-input clearInput maxlength="50" type="email" formControlName="email" [(ngModel)]="userRegister.email"></ion-input>
       </ion-item>
-      <ion-item lines='none' color="primary">
+      <ion-item lines='none' color="tertiary">
         <ion-label position="floating">Senha</ion-label>
         <ion-input clearInput maxlength="15" type="password" formControlName="password" [(ngModel)]="userRegister.password"></ion-input>
       </ion-item>
-      <ion-item lines='none' color="primary">
+      <ion-item lines='none' color="tertiary">
         <ion-label position="floating">Repetir a Senha</ion-label>
-        <ion-input clearInput maxlength="15" type="password" formControlName="repassword"></ion-input>
+        <ion-input clearInput maxlength="15" type="password" formControlName="repassword" [(ngModel)]="userRegister.repassword"></ion-input>
       </ion-item>
     </div>
     <p>* Senha: mínimo 6 caracteres</p>

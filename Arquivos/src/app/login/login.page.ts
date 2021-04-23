@@ -71,7 +71,7 @@ export class LoginPage implements OnInit {
 
   async alertaConfirma(){
     const alert = await this.controleAlerta.create({
-      header: 'QuizApp',
+      header: 'Quiz Educacional',
       message: 'Deseja realmente sair? <br> O aplicativo perderá algumas funcionalidades.',
       buttons: [
         {

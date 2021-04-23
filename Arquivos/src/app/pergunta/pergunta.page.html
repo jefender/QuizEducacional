@@ -7,36 +7,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark">
-  <div id="container">
-    <div id="perguntas">
-      {{pergunta}}
+<ion-content color="primary">
+  <form [formGroup]="orderForm">
+    <div id="container">  
+      <div id="perguntas">
+        {{pergunta}}
+      </div>
+      <br>
+      <br>
+      <div id="respostas">
+        <ion-list>
+          <ion-radio-group allow-empty-selection="true">
+            <ion-item lines="none" (click)="pegarResposta(1)">
+              <ion-label class="ion-text-wrap">{{opcao01}}</ion-label>
+              <ion-radio slot="end" value="op01" color="danger"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" (click)="pegarResposta(2)">
+              <ion-label class="ion-text-wrap">{{opcao02}}</ion-label>
+              <ion-radio slot="end" value="op02" color="danger"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" (click)="pegarResposta(3)">
+              <ion-label class="ion-text-wrap">{{opcao03}}</ion-label>
+              <ion-radio slot="end" value="op03" color="danger"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" (click)="pegarResposta(4)">
+              <ion-label class="ion-text-wrap">{{opcao04}}</ion-label>
+              <ion-radio slot="end" value="op04" color="danger"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </div>
     </div>
-    <br>
-    <br>
-    <div id="respostas">
-      <ion-list>
-        <ion-radio-group>
-          <ion-item lines="none" (click)="pegarResposta(1)">
-            <ion-label class="ion-text-wrap">{{opcao01}}</ion-label>
-            <ion-radio slot="end" value="op01" color="danger"></ion-radio>
-          </ion-item>
-          <ion-item lines="none" (click)="pegarResposta(2)">
-            <ion-label class="ion-text-wrap">{{opcao02}}</ion-label>
-            <ion-radio slot="end" value="op02" color="danger"></ion-radio>
-          </ion-item>
-          <ion-item lines="none" (click)="pegarResposta(3)">
-            <ion-label class="ion-text-wrap">{{opcao03}}</ion-label>
-            <ion-radio slot="end" value="op03" color="danger"></ion-radio>
-          </ion-item>
-          <ion-item lines="none" (click)="pegarResposta(4)">
-            <ion-label class="ion-text-wrap">{{opcao04}}</ion-label>
-            <ion-radio slot="end" value="op04" color="danger"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </ion-list>
-    </div>
-  </div>
+  </form>
 
 </ion-content>
 

@@ -47,9 +47,11 @@ export class CreateUserPage implements OnInit {
 
   async register(){
 
-    await this.presentLoading();
+    if (this.userRegister.password == this.userRegister.repassword){
 
-    try {
+      await this.presentLoading();
+
+      try {
       await this.authService.register(this.userRegister);
     } catch(error) {
       let message: string;
@@ -67,6 +69,10 @@ export class CreateUserPage implements OnInit {
       this.presentToast(message);
     } finally {
       this.loading.dismiss();
+    }
+    }else{   
+      let message = 'As senhas não estão idênticas';
+      this.presentToast(message);
     }
   }
 

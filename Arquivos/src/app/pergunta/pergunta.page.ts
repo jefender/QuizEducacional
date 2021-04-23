@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { CadastroService } from '../services/cadastro.service';
 
@@ -22,8 +23,14 @@ export class PerguntaPage implements OnInit {
   errado: any = 0;
 
   public correta; perguntasDb; Pergunta1; Resposta1; Resposta2; Resposta3; Resposta4: string;
+  
+  public orderForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public cadastroService: CadastroService) { }
+  constructor(
+    public navCtrl: NavController, 
+    public cadastroService: CadastroService,
+    public formBuilder: FormBuilder
+    ) { }
 
   abrirTela(page){
     this.navCtrl.navigateForward(page)
@@ -41,6 +48,7 @@ export class PerguntaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.pegarDadosfirebase();
     this.caregarPerguntas();
   }
 
@@ -70,6 +78,7 @@ export class PerguntaPage implements OnInit {
       localStorage.setItem('Errado', this.errado);
     }else{
       this.numero++;
+      this.orderForm.reset();
       this.caregarPerguntas();
     }
   }
