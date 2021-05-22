@@ -17,7 +17,11 @@
     <div>
       <ion-item lines='none' color="tertiary">
         <ion-label position="floating">Nome</ion-label>
-        <ion-input clearInput maxlength="50" type="text" formControlName="name"></ion-input>
+        <ion-input clearInput maxlength="50" type="text" formControlName="name" [(ngModel)]="userRegister.nome"></ion-input>
+      </ion-item>
+      <ion-item lines='sobrenone' color="tertiary">
+        <ion-label position="floating">Sobrenome</ion-label>
+        <ion-input clearInput maxlength="50" type="text" formControlName="lastname" [(ngModel)]="userRegister.sobrenome"></ion-input>
       </ion-item>
       <ion-item lines='none' color="tertiary">
         <ion-label position="floating">E-mail</ion-label>
@@ -25,14 +29,14 @@
       </ion-item>
       <ion-item lines='none' color="tertiary">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input clearInput maxlength="15" type="password" formControlName="password" [(ngModel)]="userRegister.password"></ion-input>
+        <ion-input clearInput maxlength="10" type="password" formControlName="password" [(ngModel)]="userRegister.senha"></ion-input>
       </ion-item>
       <ion-item lines='none' color="tertiary">
         <ion-label position="floating">Repetir a Senha</ion-label>
-        <ion-input clearInput maxlength="15" type="password" formControlName="repassword" [(ngModel)]="userRegister.repassword"></ion-input>
+        <ion-input clearInput maxlength="10" type="password" formControlName="repassword" [(ngModel)]="userRegister.repassword"></ion-input>
       </ion-item>
     </div>
-    <p>* Senha: mínimo 6 caracteres</p>
+    <p>* Senha: de 6 a 10 caracteres</p>
   </form>
 
   <ion-button (click)="register()" shape="round" color="success" [disabled]="!fGroup.valid">Criar conta</ion-button>

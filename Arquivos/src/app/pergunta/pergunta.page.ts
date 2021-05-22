@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { CadastroService } from '../services/cadastro.service';
 
@@ -22,14 +21,11 @@ export class PerguntaPage implements OnInit {
   certo: any = 0;
   errado: any = 0;
 
-  public correta; perguntasDb; Pergunta1; Resposta1; Resposta2; Resposta3; Resposta4: string;
-  
-  public orderForm: FormGroup;
+  public correta; perguntasDb; Pergunta; Resposta1; Resposta2; Resposta3; Resposta4: string;
 
   constructor(
-    public navCtrl: NavController, 
-    public cadastroService: CadastroService,
-    public formBuilder: FormBuilder
+    public navCtrl: NavController,
+    public cadastroService: CadastroService
     ) { }
 
   abrirTela(page){
@@ -40,6 +36,10 @@ export class PerguntaPage implements OnInit {
     this.inicio();
   }
 
+  ngOnInit() {
+    this.inicio();
+  }
+
   inicio(){
     this.errado = 0;
     this.certo = 0;
@@ -47,14 +47,9 @@ export class PerguntaPage implements OnInit {
     this.caregarPerguntas();
   }
 
-  ngOnInit() {
-    this.pegarDadosfirebase();
-    this.caregarPerguntas();
-  }
-
   caregarPerguntas(){
-    this.pegarDadosfirebase();
-    this.pergunta = this.Pergunta1;
+    this.pegarDadosBanco();
+    this.pergunta = this.Pergunta;
     this.resposta = this.correta;
     this.opcao01 = this.Resposta1;
     this.opcao02 = this.Resposta2;
@@ -72,19 +67,18 @@ export class PerguntaPage implements OnInit {
     }else{
       this.errado++;
     }
-    if(this.numero >= 3){
+    if(this.numero >= 9){
       this.navCtrl.navigateForward("resultado");
       localStorage.setItem('Certo', this.certo);
       localStorage.setItem('Errado', this.errado);
     }else{
       this.numero++;
-      this.orderForm.reset();
       this.caregarPerguntas();
     }
   }
 
-  pegarDadosfirebase(){
-    this.cadastroService.pegarDadosfirebase()
+  pegarDadosBanco(){
+    this.cadastroService.pegarPerguntasBanco()
     .then ((response:any) =>{
       this.trataDados(response);
     });
@@ -92,11 +86,11 @@ export class PerguntaPage implements OnInit {
 
   trataDados(dados){
     this.perguntasDb = Object.keys(dados).map(i => dados[i]);
-    this.Pergunta1 = this.perguntasDb[2];
+    this.Pergunta = this.perguntasDb[2];
     this.Resposta1 = this.perguntasDb[3];
     this.Resposta2 = this.perguntasDb[4];
     this.Resposta3 = this.perguntasDb[5];
     this.Resposta4 = this.perguntasDb[6];
-    this.correta = this.perguntasDb[0];
+    this.correta = this.perguntasDb[7];
   }
 }

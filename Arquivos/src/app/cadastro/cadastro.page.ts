@@ -33,6 +33,6 @@ export class CadastroPage implements OnInit {
   }
 
   CreateRecord(){
-    this.cadastroService.CreateRecord(this.fGroup.value);
+    // this.cadastroService.CreateRecord(this.fGroup.value);
   }
 }

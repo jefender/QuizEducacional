@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
@@ -16,7 +15,7 @@ export class FolderPage implements OnInit {
   }
 
   abrirTela(page){
-    this.navCtrl.navigateForward(page)
+    this.navCtrl.navigateForward(page);
   }
 
   async logout(){

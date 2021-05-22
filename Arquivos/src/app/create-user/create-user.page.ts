@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { User } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
 
@@ -19,6 +19,7 @@ export class CreateUserPage implements OnInit {
   private loading: any;
 
   constructor(
+    public navCtrl: NavController,
     private fBuilder: FormBuilder,
     private authService: AuthService,
     private loadingCtrl: LoadingController,
@@ -30,48 +31,58 @@ export class CreateUserPage implements OnInit {
         Validators.minLength(2),
         Validators.maxLength(30)
       ])],
+      'lastname': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(30)
+      ])],
       'email': [null, Validators.compose([
         Validators.required,
         Validators.email
       ])],
       'password': [null, Validators.compose([
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(6),
+        Validators.maxLength(10)
       ])],
       'repassword': [null, Validators.compose([
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(6),
+        Validators.maxLength(10)
       ])]
     });
   }
 
-  async register(){
+  register(){
 
-    if (this.userRegister.password == this.userRegister.repassword){
+    if (this.userRegister.senha == this.userRegister.repassword){
 
-      await this.presentLoading();
+      this.presentLoading();
+      this.authService.adicionarUsuario(this.userRegister)
 
-      try {
-      await this.authService.register(this.userRegister);
-    } catch(error) {
-      let message: string;
+      .then ((resposta: any)=>{
+        let message: string;
+        switch(resposta.Resp){
+          case '1':
+            message = 'Email já esta em uso!';
+            break
+          case '0':
+            message = 'Usuário Cadastrado com sucesso!';
+            this.navCtrl.navigateRoot('folder/Inbox');
+            break
+        }
+        this.presentToast(message);
+        this.loading.dismiss();
+      })
+      .catch((resposta) =>{
+        let message: string;
+        message = 'Servidor não encontrado!!';
+        this.presentToast(message);
+        this.loading.dismiss();
+      });
 
-      switch(error.code) {
-        case 'auth/email-already-in-use':
-          message = 'Email já esta em uso!';
-        break;
-
-        case 'auth/invalid-email':
-          message = 'Email inválido!';
-        break;
-      }
-
-      this.presentToast(message);
-    } finally {
-      this.loading.dismiss();
-    }
-    }else{   
-      let message = 'As senhas não estão idênticas';
+    }else{
+      let message = 'As senhas não estão idênticas!';
       this.presentToast(message);
     }
   }
