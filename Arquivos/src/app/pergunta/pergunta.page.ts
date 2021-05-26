@@ -21,7 +21,7 @@ export class PerguntaPage implements OnInit {
   certo: any = 0;
   errado: any = 0;
 
-  public correta; perguntasDb; Pergunta; Resposta1; Resposta2; Resposta3; Resposta4: string;
+  // public correta; perguntasDb; Pergunta; Resposta1; Resposta2; Resposta3; Resposta4: string;
 
   constructor(
     public navCtrl: NavController,
@@ -48,13 +48,13 @@ export class PerguntaPage implements OnInit {
   }
 
   caregarPerguntas(){
-    this.pegarDadosBanco();
-    this.pergunta = this.Pergunta;
-    this.resposta = this.correta;
-    this.opcao01 = this.Resposta1;
-    this.opcao02 = this.Resposta2;
-    this.opcao03 = this.Resposta3;
-    this.opcao04 = this.Resposta4;
+    this.cadastroService.pegarDadosBanco();
+    this.pergunta = this.cadastroService.Pergunta;
+    this.resposta = this.cadastroService.correta;
+    this.opcao01 = this.cadastroService.Resposta1;
+    this.opcao02 = this.cadastroService.Resposta2;
+    this.opcao03 = this.cadastroService.Resposta3;
+    this.opcao04 = this.cadastroService.Resposta4;
   }
 
   pegarResposta(valor){
@@ -77,20 +77,20 @@ export class PerguntaPage implements OnInit {
     }
   }
 
-  pegarDadosBanco(){
-    this.cadastroService.pegarPerguntasBanco()
-    .then ((response:any) =>{
-      this.trataDados(response);
-    });
-  }
+  // pegarDadosBanco(){
+  //   this.cadastroService.pegarPerguntasBanco()
+  //   .then ((response:any) =>{
+  //     this.trataDados(response);
+  //   });
+  // }
 
-  trataDados(dados){
-    this.perguntasDb = Object.keys(dados).map(i => dados[i]);
-    this.Pergunta = this.perguntasDb[2];
-    this.Resposta1 = this.perguntasDb[3];
-    this.Resposta2 = this.perguntasDb[4];
-    this.Resposta3 = this.perguntasDb[5];
-    this.Resposta4 = this.perguntasDb[6];
-    this.correta = this.perguntasDb[7];
-  }
+  // trataDados(dados){
+  //   this.perguntasDb = Object.keys(dados).map(i => dados[i]);
+  //   this.Pergunta = this.perguntasDb[2];
+  //   this.Resposta1 = this.perguntasDb[3];
+  //   this.Resposta2 = this.perguntasDb[4];
+  //   this.Resposta3 = this.perguntasDb[5];
+  //   this.Resposta4 = this.perguntasDb[6];
+  //   this.correta = this.perguntasDb[7];
+  // }
 }
