@@ -4,4 +4,5 @@ export interface User {
   repassword?: string;
   nome?: string;
   sobrenome?: string;
+  token?: string;
 }

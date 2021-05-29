@@ -19,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'pergunta',
-    loadChildren: () => import('./pergunta/pergunta.module').then( m => m.PerguntaPageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./pergunta/pergunta.module').then( m => m.PerguntaPageModule)
+    , canActivate: [AuthGuard]
   },
   {
     path: 'resultado',
@@ -31,15 +32,18 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule), canActivate: [LoginGuard]
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    // , canActivate: [LoginGuard]
   },
   {
     path: 'create-user',
-    loadChildren: () => import('./create-user/create-user.module').then( m => m.CreateUserPageModule), canActivate: [LoginGuard]
+    loadChildren: () => import('./create-user/create-user.module').then( m => m.CreateUserPageModule)
+    // , canActivate: [LoginGuard]
   },
   {
     path: 'cadastro',
-    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+    , canActivate: [AuthGuard]
   }
 ];
 

@@ -67,6 +67,7 @@ export class CreateUserPage implements OnInit {
             message = 'Email já esta em uso!';
             break
           case '0':
+            localStorage.setItem('user',  resposta.token);
             message = 'Usuário Cadastrado com sucesso!';
             this.navCtrl.navigateRoot('folder/Inbox');
             break

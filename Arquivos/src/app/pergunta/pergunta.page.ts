@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { CadastroService } from '../services/cadastro.service';
 
 @Component({
@@ -17,14 +17,13 @@ export class PerguntaPage implements OnInit {
   opcao03: string;
   opcao04: string;
   numero: number = 0;
-  respostaEscolhida: string;
+  respostaEscolhida: string = "";
   certo: any = 0;
   errado: any = 0;
 
-  // public correta; perguntasDb; Pergunta; Resposta1; Resposta2; Resposta3; Resposta4: string;
-
   constructor(
     public navCtrl: NavController,
+    private toastCtrl: ToastController,
     public cadastroService: CadastroService
     ) { }
 
@@ -57,15 +56,20 @@ export class PerguntaPage implements OnInit {
     this.opcao04 = this.cadastroService.Resposta4;
   }
 
-  pegarResposta(valor){
-    this.respostaEscolhida = valor;
-  }
-
   proximo(){
+    if(this.respostaEscolhida ==""){
+      let message: string;
+      message = 'Por Favor. Escolha uma das opções!';
+      this.presentToast(message);
+      return false;
+    }
+
     if(this.respostaEscolhida == this.resposta){
       this.certo++;
+      this.respostaEscolhida="";
     }else{
       this.errado++;
+      this.respostaEscolhida="";
     }
     if(this.numero >= 9){
       this.navCtrl.navigateForward("resultado");
@@ -77,20 +81,12 @@ export class PerguntaPage implements OnInit {
     }
   }
 
-  // pegarDadosBanco(){
-  //   this.cadastroService.pegarPerguntasBanco()
-  //   .then ((response:any) =>{
-  //     this.trataDados(response);
-  //   });
-  // }
-
-  // trataDados(dados){
-  //   this.perguntasDb = Object.keys(dados).map(i => dados[i]);
-  //   this.Pergunta = this.perguntasDb[2];
-  //   this.Resposta1 = this.perguntasDb[3];
-  //   this.Resposta2 = this.perguntasDb[4];
-  //   this.Resposta3 = this.perguntasDb[5];
-  //   this.Resposta4 = this.perguntasDb[6];
-  //   this.correta = this.perguntasDb[7];
-  // }
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
+  }
+  
 }

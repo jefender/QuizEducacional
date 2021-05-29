@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
 
   public userLogin: User = {};
   private loading: any;
+  userLocal: any;
 
   constructor(
     public navCtrl: NavController,
@@ -26,29 +27,35 @@ export class LoginPage implements OnInit {
 
   async login() {
 
-    await this.presentLoading();
-
-    try {
-      await this.authService.login(this.userLogin);
-    } catch(error) {
+    if (this.userLogin.email == undefined || this.userLogin.email == '' ||this.userLogin.senha == undefined || this.userLogin.senha == '' ) {
       let message: string;
-
-      switch(error.code) {
-        case 'auth/wrong-password':
-          message = 'Senha inválida!';
-        break;
-
-        case 'auth/user-not-found':
-          message = 'Usuário não existe!';
-        break;
-
-        case 'auth/invalid-email':
-          message = 'Email inválido!';
-        break;
-      }
+      message = 'Por favor, preencher os campos necessários';
       this.presentToast(message);
-    } finally {
-      this.loading.dismiss();
+    }else{
+
+    await this.presentLoading();
+    await this.authService.login(this.userLogin)
+    .then((resposta: any) => {
+      let message: string;
+        switch(resposta.Resp) {
+        case '0':
+          message = 'E-mail ou Senha Inválidos!';
+        break;
+
+        case '1':
+          localStorage.setItem('user',  resposta.token);
+          this.navCtrl.navigateForward('folder/Inbox')
+          message = 'Login efetuado com sucesso!';
+      break;
+        }
+        this.presentToast(message);
+        this.loading.dismiss();
+    })
+    .catch((resposta) => {
+      let message: string;
+      message = 'Servidor não encontrado. Tente mais tarde!';
+      this.presentToast(message);
+    });
     }
   }
 

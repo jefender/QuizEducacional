@@ -8,15 +8,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
   caminho: string = 'https://jefersonferreira.joomla.com/quizeducacional/php/';
+  public userLogin: User = {};
 
   constructor(public httpCtrl: HttpClient, private afa: AngularFireAuth) { }
 
-  login(user: User) {
-    return this.afa.signInWithEmailAndPassword(user.email, user.senha);
+  login(autenticacao: any) {
+    // return this.afa.signInWithEmailAndPassword(user.email, user.senha);
+    let url = this.caminho + 'autenticar.php';
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpCtrl.post(url, autenticacao, { headers: headers }).toPromise();
   }
 
   logout() {
-    return this.afa.signOut();
+    // return this.afa.signOut();
+    this.userLogin.token="";
+    localStorage.setItem('user', "");
   }
 
   adicionarUsuario(usuario: any){
@@ -26,6 +32,10 @@ export class AuthService {
   }
 
   getAuth() {
-    return this.afa;
+    // return this.afa;
+  }
+
+  gettoken(){
+    return !!localStorage.getItem('user')
   }
 }
