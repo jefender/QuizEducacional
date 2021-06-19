@@ -1,21 +1,14 @@
-#container{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-}
-
-#perguntas{
+#pergunta{
   text-align: center;
   font-size: 13pt;
   font-weight: bold;
-  margin: 10px 10px 10px 10px;
+  margin: 50px 10px 10px 10px;
 }
 
-#respostas{
+ion-list{
   margin: 8px 8px 8px 8px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.315);
 }
 
 ion-label{

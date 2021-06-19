@@ -8,36 +8,31 @@
 </ion-header>
 
 <ion-content color="primary">
-    <div id="container">
-      <div id="perguntas">
+      <div id="pergunta">
         {{pergunta}}
       </div>
       <br>
       <br>
-      <div id="respostas">
-        <ion-list>
-          <ion-radio-group value="respostaEscolhida" [(ngModel)]="respostaEscolhida">
-            <ion-item lines="none">
-              <ion-label class="ion-text-wrap">{{opcao01}}</ion-label>
-              <ion-radio slot="end" value="1" color="danger"></ion-radio>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-label class="ion-text-wrap">{{opcao02}}</ion-label>
-              <ion-radio slot="end" value="2" color="danger"></ion-radio>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-label class="ion-text-wrap">{{opcao03}}</ion-label>
-              <ion-radio slot="end" value="3" color="danger"></ion-radio>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-label class="ion-text-wrap">{{opcao04}}</ion-label>
-              <ion-radio slot="end" value="4" color="danger"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </div>
-    </div>
-
+      <ion-list>
+        <ion-radio-group value="respostaEscolhida" [(ngModel)]="respostaEscolhida">
+          <ion-item lines="none">
+            <ion-label class="ion-text-wrap">{{opcao01}}</ion-label>
+            <ion-radio slot="end" value="1" color="success"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="ion-text-wrap">{{opcao02}}</ion-label>
+            <ion-radio slot="end" value="2" color="success"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="ion-text-wrap">{{opcao03}}</ion-label>
+            <ion-radio slot="end" value="3" color="success"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="ion-text-wrap">{{opcao04}}</ion-label>
+            <ion-radio slot="end" value="4" color="success"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
 </ion-content>
 
 <ion-footer>
